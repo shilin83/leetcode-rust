@@ -1,0 +1,30 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "**/*.rs" ]
+  pull_request:
+
+env:
+  REPORT_NAME: "lcov.info"
+
+jobs:
+  run_test_and_upload_codecov:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        run: rustup update stable
+      - name: Install cargo-llvm-cov
+        uses: taiki-e/install-action@cargo-llvm-cov
+      - name: Generate Coverage
+        run: cargo llvm-cov --lcov --output-path ${{ env.REPORT_NAME }}
+      - name: Upload Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ${{ env.REPORT_NAME }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: shilin83/leetcode-rust
+          fail_ci_if_error: true
+          verbose: true
