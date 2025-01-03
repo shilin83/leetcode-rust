@@ -1,0 +1,7 @@
+services:
+  leetcode-rust:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: leetcode-rust
+    container_name: leetcode-rust
