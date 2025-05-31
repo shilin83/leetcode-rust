@@ -1,0 +1,8 @@
+default: true
+first-line-h1: false
+line-length: false
+MD033:
+  allowed_elements:
+    - a
+    - p
+    - img

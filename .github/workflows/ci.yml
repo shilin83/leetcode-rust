@@ -1,0 +1,27 @@
+name: Continuous Integration
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/_*.rs"
+  pull_request:
+env:
+  FILE_NAME: lcov.info
+jobs:
+  run_tests_and_upload_codecov:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup update stable
+      - uses: Swatinem/rust-cache@v2
+      - uses: taiki-e/install-action@cargo-llvm-cov
+      - name: run tests
+        run: cargo llvm-cov --lcov --output-path ${{ env.FILE_NAME }}  --ignore-filename-regex lib.rs
+      - name: upload codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ${{ env.FILE_NAME }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          verbose: true

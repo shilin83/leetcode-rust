@@ -1,0 +1,10 @@
+[package]
+name = "leetcode-rust"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+doctest = false
+
+[dependencies]
+pretty_assertions = "1.4"

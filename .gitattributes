@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+*.md linguist-detectable=false
+*.yml linguist-detectable=false
+*.yaml linguist-detectable=false
+*.toml linguist-detectable=false
