@@ -31,6 +31,7 @@ cargo llvm-cov nextest --open --ignore-filename-regex lib.rs
 
 ## 题库列表
 
-| 序号                              | 题目                                              | 标签  | 难度 |
-|:--------------------------------|:------------------------------------------------|:---:|:--:|
-| [0001](src/problems/two_sum.rs) | [✅ 两数之和](https://leetcode.cn/problems/two-sum/) | 哈希表 | 简单 |
+| 序号                                      | 题目                                                      | 标签  | 难度 |
+|:----------------------------------------|:--------------------------------------------------------|:---:|:--:|
+| [0002](src/problems/add_two_numbers.rs) | [✅ 两数相加](https://leetcode.cn/problems/add-two-numbers/) | 链表  | 中等 |
+| [0001](src/problems/two_sum.rs)         | [✅ 两数之和](https://leetcode.cn/problems/two-sum/)         | 哈希表 | 简单 |
