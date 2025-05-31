@@ -6,6 +6,20 @@ mod tests {
     use pretty_assertions::assert_eq;
 
     #[test]
+    fn test_0004() {
+        use crate::problems::median_of_two_sorted_arrays::Solution;
+
+        let cases: [(Vec<i32>, Vec<i32>, f64); 2] =
+            [(vec![1, 3], vec![2], 2.0), (vec![1, 2], vec![3, 4], 2.5)];
+
+        for (nums1, nums2, expected) in cases {
+            let actual: f64 = Solution::find_median_sorted_arrays(nums1, nums2);
+
+            assert_eq!(actual, expected);
+        }
+    }
+
+    #[test]
     fn test_0003() {
         use crate::problems::longest_substring_without_repeating_characters::Solution;
 
